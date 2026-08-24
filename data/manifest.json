@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": "2026-08-24",
+  "courses": {
+    "daily": {
+      "count": 5200,
+      "file": "daily.json",
+      "topics": [
+        "Feelings",
+        "Food",
+        "General",
+        "Health",
+        "Home",
+        "Relationships",
+        "Shopping",
+        "Technology",
+        "Travel"
+      ],
+      "difficulty": {
+        "Advanced": 1540,
+        "Basic": 1089,
+        "Intermediate": 2571
+      }
+    },
+    "ielts": {
+      "count": 5200,
+      "file": "ielts.json",
+      "topics": [
+        "Culture",
+        "Economics",
+        "Education",
+        "Environment",
+        "General",
+        "Government",
+        "Health",
+        "Science",
+        "Society"
+      ],
+      "difficulty": {
+        "Advanced": 2774,
+        "Basic": 1089,
+        "Intermediate": 1337
+      }
+    },
+    "business": {
+      "count": 5200,
+      "file": "business.json",
+      "topics": [
+        "Communication",
+        "Finance",
+        "General",
+        "Legal",
+        "Management",
+        "Marketing",
+        "Operations",
+        "Sales",
+        "Strategy",
+        "Technology"
+      ],
+      "difficulty": {
+        "Advanced": 2850,
+        "Basic": 1089,
+        "Intermediate": 1261
+      }
+    }
+  }
+}
