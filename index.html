@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="雅思、日常口语和商务英语句子填空练习。">
-  <title>WordTrail 英语填空练习</title>
-  <script type="module" crossorigin src="./assets/index-D7HR8DLU.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C4__tKlZ.css">
+  <meta name="description" content="雅思、日常口语和商务英语的单词学习、句子填空与整句翻译练习。">
+  <title>WordTrail 英语学习</title>
+  <script type="module" crossorigin src="./assets/index-BDcHSCDT.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DLPAKiRb.css">
 </head>
 <body>
   <div class="page-overlay" aria-hidden="true"></div>
@@ -27,7 +27,7 @@
   <main class="app-shell">
     <section class="course-head" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">Sentence practice</p>
+        <p class="eyebrow">Learn · Practice · Translate</p>
         <h1 id="page-title">在语境中记住每一个词</h1>
       </div>
       <p class="course-total"><strong id="course-count">15,600</strong><span>本地词汇与例句</span></p>
@@ -94,6 +94,23 @@
       </div>
     </section>
 
+    <nav class="mode-switcher" aria-label="学习模式">
+      <button type="button" data-mode="learn" aria-pressed="true">
+        <i data-lucide="book-open-check" aria-hidden="true"></i>
+        <span><small>第 1 步</small>背单词</span>
+      </button>
+      <i data-lucide="chevron-right" aria-hidden="true"></i>
+      <button type="button" data-mode="cloze" aria-pressed="false">
+        <i data-lucide="text-cursor-input" aria-hidden="true"></i>
+        <span><small>第 2 步</small>句子填空</span>
+      </button>
+      <i data-lucide="chevron-right" aria-hidden="true"></i>
+      <button type="button" data-mode="translate" aria-pressed="false">
+        <i data-lucide="languages" aria-hidden="true"></i>
+        <span><small>第 3 步</small>整句翻译</span>
+      </button>
+    </nav>
+
     <section class="preference-strip" aria-label="练习偏好">
       <label class="switch-control">
         <input id="translation-toggle" type="checkbox">
@@ -147,26 +164,54 @@
           </button>
         </div>
 
-        <p id="sentence" class="sentence"></p>
-        <p class="answer-length" id="answer-length"></p>
-        <p id="translation" class="translation" lang="zh-CN" hidden></p>
-
-        <div id="hint-panel" class="hint-panel" hidden>
-          <i data-lucide="lightbulb" aria-hidden="true"></i>
-          <div>
-            <strong>词义提示</strong>
-            <p id="definition"></p>
-            <span id="letter-hint"></span>
+        <section id="learn-view" class="learn-view" aria-label="背单词">
+          <p id="learn-word" class="learn-word"></p>
+          <p id="learn-definition" class="learn-definition"></p>
+          <div class="learn-example">
+            <strong>例句</strong>
+            <p id="learn-sentence"></p>
+            <p id="learn-translation" lang="zh-CN"></p>
           </div>
-        </div>
-
-        <form id="answer-form" novalidate>
-          <label for="answer-input">你的答案</label>
-          <div class="answer-row">
-            <input id="answer-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="输入缺少的英文单词">
-            <button id="submit-button" class="primary-button" type="submit">检查答案<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <div class="memory-actions" role="group" aria-label="选择记忆程度">
+            <button type="button" data-rating="unknown"><i data-lucide="circle-x" aria-hidden="true"></i>不认识</button>
+            <button type="button" data-rating="fuzzy"><i data-lucide="circle-help" aria-hidden="true"></i>有印象</button>
+            <button type="button" data-rating="known"><i data-lucide="circle-check" aria-hidden="true"></i>认识</button>
           </div>
-        </form>
+        </section>
+
+        <section id="cloze-view" aria-label="句子填空" hidden>
+          <p id="sentence" class="sentence"></p>
+          <p class="answer-length" id="answer-length"></p>
+          <p id="translation" class="translation" lang="zh-CN" hidden></p>
+
+          <div id="hint-panel" class="hint-panel" hidden>
+            <i data-lucide="lightbulb" aria-hidden="true"></i>
+            <div>
+              <strong>词义提示</strong>
+              <p id="definition"></p>
+              <span id="letter-hint"></span>
+            </div>
+          </div>
+
+          <form id="answer-form" novalidate>
+            <label for="answer-input">你的答案</label>
+            <div class="answer-row">
+              <input id="answer-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="输入缺少的英文单词">
+              <button id="submit-button" class="primary-button" type="submit">检查答案<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </section>
+
+        <section id="translate-view" class="translate-view" aria-label="整句翻译" hidden>
+          <span class="prompt-label">请翻译成英文</span>
+          <p id="translate-prompt" class="translate-prompt" lang="zh-CN"></p>
+          <form id="translate-form" novalidate>
+            <label for="translate-input">你的英文句子</label>
+            <textarea id="translate-input" rows="3" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="输入完整英文句子"></textarea>
+            <button id="translate-submit" class="primary-button" type="submit">检查翻译<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          </form>
+          <div id="translation-comparison" class="translation-comparison" hidden></div>
+        </section>
 
         <div id="feedback" class="feedback" aria-live="polite" hidden></div>
 
@@ -188,15 +233,14 @@
         <h2>本组练习完成</h2>
         <p id="completion-copy"></p>
         <div class="completion-stats">
-          <span><strong id="session-correct">0</strong>答对</span>
+          <span><strong id="session-correct">0</strong><span id="session-correct-label">答对</span></span>
           <span><strong id="session-accuracy">0%</strong>正确率</span>
-          <span><strong id="session-learned">0</strong>个词</span>
+          <span><strong id="session-learned">0</strong><span id="session-learned-label">个词</span></span>
         </div>
         <button id="restart-button" class="primary-button" type="button">继续练习<i data-lucide="rotate-cw" aria-hidden="true"></i></button>
       </div>
     </section>
 
-    <p class="keyboard-tip"><kbd>Enter</kbd> 检查答案或进入下一题</p>
   </main>
 
   <footer>
