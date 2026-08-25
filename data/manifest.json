@@ -17,9 +17,9 @@
         "Travel"
       ],
       "difficulty": {
-        "Advanced": 1540,
-        "Basic": 1089,
-        "Intermediate": 2571
+        "Advanced": 2348,
+        "Basic": 904,
+        "Intermediate": 1948
       }
     },
     "ielts": {
@@ -37,9 +37,9 @@
         "Society"
       ],
       "difficulty": {
-        "Advanced": 2774,
-        "Basic": 1089,
-        "Intermediate": 1337
+        "Advanced": 2405,
+        "Basic": 904,
+        "Intermediate": 1891
       }
     },
     "business": {
@@ -58,9 +58,9 @@
         "Technology"
       ],
       "difficulty": {
-        "Advanced": 2850,
-        "Basic": 1089,
-        "Intermediate": 1261
+        "Advanced": 2348,
+        "Basic": 904,
+        "Intermediate": 1948
       }
     }
   }
