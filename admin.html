@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>WordTrail 学习后台</title>
+  <script type="module" crossorigin src="./assets/admin-B0d4IXIC.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/cloudbase-rpc-BMMtAu0U.js">
+  <link rel="stylesheet" crossorigin href="./assets/admin-CplTq_2U.css">
+</head>
+<body>
+  <header class="admin-header">
+    <a class="admin-brand" href="./"><i data-lucide="book-open" aria-hidden="true"></i><span>WordTrail</span></a>
+    <span>学习数据后台</span>
+  </header>
+
+  <main class="admin-shell">
+    <section id="login-view" class="login-view" aria-labelledby="login-title">
+      <div>
+        <p class="eyebrow">ADMIN ACCESS</p>
+        <h1 id="login-title">查看学习情况</h1>
+        <p>输入管理员密码后查看匿名学习汇总。</p>
+      </div>
+      <form id="login-form">
+        <label for="admin-password">管理员密码</label>
+        <div class="password-row">
+          <input id="admin-password" type="password" autocomplete="current-password" required>
+          <button type="submit">进入后台<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </div>
+        <p id="login-message" class="form-message" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dashboard-view" hidden>
+      <div class="dashboard-head">
+        <div>
+          <p class="eyebrow">LEARNING OVERVIEW</p>
+          <h1>学习概览</h1>
+          <p id="updated-at">正在读取数据</p>
+        </div>
+        <div class="dashboard-actions">
+          <div class="range-switcher" role="group" aria-label="统计范围">
+            <button type="button" data-days="1">今天</button>
+            <button type="button" data-days="7" aria-pressed="true">近 7 天</button>
+            <button type="button" data-days="30">近 30 天</button>
+          </div>
+          <button id="refresh-button" class="icon-button" type="button" aria-label="刷新数据" title="刷新数据"><i data-lucide="refresh-cw" aria-hidden="true"></i></button>
+          <button id="logout-button" class="icon-button" type="button" aria-label="退出后台" title="退出后台"><i data-lucide="log-out" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <div id="dashboard-message" class="dashboard-message" role="status"></div>
+
+      <section class="metric-grid" aria-label="核心指标">
+        <article><span>活跃学习者</span><strong id="metric-users">0</strong><small>匿名设备</small></article>
+        <article><span>学习单词</span><strong id="metric-learned">0</strong><small>去重后累计</small></article>
+        <article><span>答题数量</span><strong id="metric-attempts">0</strong><small>填空与翻译</small></article>
+        <article><span>正确率</span><strong id="metric-accuracy">--</strong><small id="metric-correct">0 次答对</small></article>
+        <article><span>学习时长</span><strong id="metric-duration">0 分钟</strong><small>有效操作时间</small></article>
+        <article><span>跳过题目</span><strong id="metric-skipped">0</strong><small>未作答跳过</small></article>
+      </section>
+
+      <section class="data-section course-section" aria-labelledby="course-title">
+        <div class="section-head"><h2 id="course-title">课程使用情况</h2><span>学习单词 / 答题 / 正确率</span></div>
+        <div id="course-bars" class="course-bars"></div>
+      </section>
+
+      <section class="data-section" aria-labelledby="trend-title">
+        <div class="section-head"><h2 id="trend-title">每日趋势</h2><span>按北京时间统计</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>日期</th><th>活跃学习者</th><th>学习单词</th><th>答题</th><th>正确率</th><th>时长</th></tr></thead>
+            <tbody id="daily-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="data-section" aria-labelledby="learners-title">
+        <div class="section-head"><h2 id="learners-title">最近学习者</h2><span>仅显示匿名编号</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>匿名用户</th><th>日期</th><th>最后活跃</th><th>主要课程</th><th>学习单词</th><th>答题</th><th>正确率</th><th>时长</th></tr></thead>
+            <tbody id="learner-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="assets/lucide.min.js"></script>
+</body>
+</html>
