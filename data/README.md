@@ -16,3 +16,7 @@ used only when WordNet has no suitable example containing the exact answer.
 Run `python scripts/build-data.py` to rebuild and validate all data files.
 Run `python scripts/add-translations.py` after rebuilding to restore the local
 Chinese translations and remove first-letter hints.
+
+For the production data set, `scripts/apply-ecdict-meanings.py` cross-checks
+word meanings against a local ECDICT snapshot and applies reviewed corrections
+for example translations. The source CSV remains local and is not deployed.
